@@ -1,0 +1,1031 @@
+#VRML_SIM V8.0.1 utf8
+WorldInfo {
+  info [
+    "Description"
+    "Author: first name last name <e-mail>"
+    "Date: DD MMM YYYY"
+  ]
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.00430451 -0.746674 -0.665176 3.15426
+  position 0.127642 2.43778 -0.273502
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DEF LIGHT1 PointLight {
+  ambientIntensity 0.6
+  intensity 0.5
+  location 0.75 0.5 0.5
+}
+DEF LIGHT2 PointLight {
+  ambientIntensity 0.6
+  intensity 0.5
+  location -0.75 0.5 0.5
+}
+DEF LIGHT3 PointLight {
+  ambientIntensity 0.6
+  intensity 0.5
+  location 0 0.5 0.75
+}
+DEF LIGHT4 PointLight {
+  ambientIntensity 0.6
+  intensity 0.5
+  location 0 0.5 -0.75
+}
+DEF FLOOR Solid {
+  children [
+    DEF floor Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.662745 0.662745 0.662745
+        }
+      }
+      geometry Plane {
+        size 0.9 1.4
+      }
+    }
+  ]
+  boundingObject USE floor
+  locked TRUE
+}
+DEF WALL1 Solid {
+  translation 0.45 0.05 0
+  children [
+    DEF wallShape1 Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.545098 0.411765 0.0784314
+          specularColor 1 1 1
+        }
+        texture ImageTexture {
+          url [
+            "./cartoon_graffiti-big.jpg"
+          ]
+        }
+      }
+      geometry DEF wall Box {
+        size 0.01 0.1 1.4
+      }
+    }
+  ]
+  name "wall"
+  boundingObject USE wallShape1
+  locked TRUE
+}
+DEF WALL2 Solid {
+  translation 0 0.05 0.7
+  rotation 0 1 0 1.57
+  children [
+    DEF wallShape2 Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "./cartoon_graffiti-big.jpg"
+          ]
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.9
+      }
+    }
+  ]
+  name "wall"
+  boundingObject USE wallShape2
+  locked TRUE
+}
+DEF WALL3 Solid {
+  translation -0.45 0.05 0
+  children [
+    USE wallShape1
+  ]
+  name "wall"
+  boundingObject USE wallShape1
+  locked TRUE
+}
+DEF WALL4 Solid {
+  translation 0 0.05 -0.7
+  rotation 0 1 0 1.57
+  children [
+    USE wallShape2
+  ]
+  name "wall"
+  boundingObject USE wallShape2
+  locked TRUE
+}
+DEF CORNER(STONE)1 Solid {
+  translation -0.41 0.05 0.66
+  rotation 0 1 0 0.78
+  children [
+    DEF cornerShape Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "./cartoon_graffiti-big.jpg"
+          ]
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.1
+      }
+    }
+  ]
+  name "wall"
+  boundingObject USE cornerShape
+  locked TRUE
+}
+DEF CORNER(STONE)2 Solid {
+  translation 0.41 0.05 0.66
+  rotation 0 1 0 2.35
+  children [
+    USE cornerShape
+  ]
+  name "wall"
+  boundingObject USE cornerShape
+  locked TRUE
+}
+DEF CORNER(STONE)3 Solid {
+  translation 0.41 0.05 -0.66
+  rotation 0 1 0 3.92
+  children [
+    USE cornerShape
+  ]
+  name "wall"
+  boundingObject USE cornerShape
+  locked TRUE
+}
+DEF CORNER(STONE)4 Solid {
+  translation -0.41 0.05 -0.66
+  rotation 0 1 0 5.49
+  children [
+    USE cornerShape
+  ]
+  name "wall"
+  boundingObject USE cornerShape
+  locked TRUE
+}
+DEF BOX1 Solid {
+  translation -0.3 0.0125 -0.467
+  children [
+    DEF dirtbox Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry DEF GEOMBOX Box {
+        size 0.025 0.025 0.025
+      }
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics DEF BOXPHYS Physics {
+    density -1
+    mass 0.1
+  }
+}
+DEF BOX2 Solid {
+  translation -0.15 0.0125 -0.467
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX3 Solid {
+  translation 0 0.0125 -0.467
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX4 Solid {
+  translation 0.15 0.0125 -0.467
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX5 Solid {
+  translation 0.3 0.0125 -0.467
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX6 Solid {
+  translation -0.3 0.0125 -0.2333
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX7 Solid {
+  translation -0.15 0.0125 -0.2333
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX8 Solid {
+  translation 0 0.0125 -0.233
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX9 Solid {
+  translation 0.15 0.0125 -0.2333
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX10 Solid {
+  translation 0.3 0.0125 -0.2333
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX11 Solid {
+  translation -0.3 0.0125 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX12 Solid {
+  translation -0.15 0.0125 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX13 Solid {
+  translation 0 0.0125 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX14 Solid {
+  translation 0.15 0.0125 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX15 Solid {
+  translation 0.3 0.0125 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX16 Solid {
+  translation -0.3 0.0125 0.233
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX17 Solid {
+  translation -0.15 0.0125 0.233
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX18 Solid {
+  translation 0 0.0125 0.233
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX19 Solid {
+  translation 0.15 0.0125 0.233
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX20 Solid {
+  translation 0.3 0.0125 0.233
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX21 Solid {
+  translation -0.3 0.0125 0.467
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX22 Solid {
+  translation -0.15 0.0125 0.467
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX23 Solid {
+  translation 0 0.0125 0.467
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX24 Solid {
+  translation 0.15 0.0125 0.467
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF BOX25 Solid {
+  translation 0.3 0.0125 0.467
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry USE GEOMBOX
+    }
+  ]
+  boundingObject USE GEOMBOX
+  physics USE BOXPHYS
+}
+DEF SUPERVISOR Supervisor {
+  controller "supervisor"
+}
+DEF ROBOT1 DifferentialWheels {
+  translation 0.35 0 0.6
+  rotation 0 1 0 -2.35
+  children [
+    DEF SUPPORT Solid {
+      translation 0 0.01 -0.045
+      children [
+        DEF supportBall Shape {
+          geometry Sphere {
+            radius 0.01
+          }
+        }
+      ]
+      boundingObject USE supportBall
+      physics DEF SUPPPHYS Physics {
+        density -1
+        mass 0.05
+      }
+    }
+    DEF SUPPORTFRONT Solid {
+      translation 0 0.01 0.035
+      children [
+        USE supportBall
+      ]
+      boundingObject USE supportBall
+      physics USE SUPPPHYS
+    }
+    DEF RIGHTSENSOR DistanceSensor {
+      translation -0.02 0.01 0.045
+      rotation 0 1 0 -2.35
+      children [
+        DEF INFRARED Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.670588 0.521569 0.223529
+                }
+              }
+              geometry DEF sensor_ball Sphere {
+                radius 0.007
+              }
+            }
+          ]
+        }
+      ]
+      name "irRight"
+      lookupTable [
+        0 1024 0
+        0.05 1024 0
+        0.051 0 0
+      ]
+    }
+    DEF LEFTSENSOR DistanceSensor {
+      translation 0.02 0.01 0.045
+      rotation 0 1 0 -0.78
+      children [
+        DEF INFRARED Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.670588 0.521569 0.223529
+                }
+              }
+              geometry Sphere {
+                radius 0.007
+              }
+            }
+          ]
+        }
+      ]
+      name "irLeft"
+      lookupTable [
+        0 1024 0
+        0.05 1024 0
+        0.051 0 0
+      ]
+    }
+    DEF CHASSIS Transform {
+      translation 0 0.03 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.713725 0.054902 0
+              specularColor 0.505882 0.219608 0.219608
+            }
+          }
+          geometry DEF body Box {
+            size 0.07 0.05 0.09
+          }
+        }
+      ]
+    }
+    DEF LEFTWHEEL Solid {
+      translation -0.035031 0.0250718 -4.03376e-06
+      rotation 0.999855 0.000569605 -0.0170152 0.243724
+      children [
+        DEF wheel Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.01
+                radius 0.025
+              }
+            }
+          ]
+        }
+      ]
+      name "left wheel"
+      boundingObject USE wheel
+      physics Physics {
+        density -1
+        mass 0.05
+      }
+    }
+    DEF RIGHTWHEEL Solid {
+      translation 0.035 0.0250039 2.60209e-18
+      rotation 0.999877 -3.73477e-09 -0.0156584 0
+      children [
+        Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.01
+                radius 0.025
+              }
+            }
+          ]
+        }
+      ]
+      name "right wheel"
+      boundingObject USE wheel
+      physics Physics {
+        density -1
+        mass 0.05
+      }
+    }
+  ]
+  name "DidaBot"
+  boundingObject USE CHASSIS
+  physics Physics {
+    density -1
+    mass 1
+  }
+  locked TRUE
+  controller "didabot_braitenberg_cpp"
+  axleLength 0.07
+  wheelRadius 0.0025
+  maxSpeed 50
+  maxAcceleration 35
+  slipNoise 0
+}
+DEF ROBOT2 DifferentialWheels {
+  translation -0.35 0 0.6
+  rotation 0 1 0 2.35
+  children [
+    DEF SUPPORT Solid {
+      translation 0 0.01 -0.045
+      children [
+        DEF supportBall Shape {
+          geometry Sphere {
+            radius 0.01
+          }
+        }
+      ]
+      boundingObject USE supportBall
+      physics DEF SUPPPHYS Physics {
+        density -1
+        mass 0.05
+      }
+    }
+    DEF SUPPORTFRONT Solid {
+      translation 0 0.01 0.035
+      children [
+        USE supportBall
+      ]
+      boundingObject USE supportBall
+      physics USE SUPPPHYS
+    }
+    DEF CHASSIS Transform {
+      translation 0 0.03 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.141176 0.4 0.172549
+              specularColor 0.505882 0.219608 0.219608
+            }
+          }
+          geometry DEF body Box {
+            size 0.07 0.05 0.09
+          }
+        }
+      ]
+    }
+    DEF RIGHTSENSOR DistanceSensor {
+      translation -0.02 0.01 0.045
+      rotation 0 1 0 -2.35
+      children [
+        DEF INFRARED Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.670588 0.521569 0.223529
+                }
+              }
+              geometry DEF sensor_ball Sphere {
+                radius 0.007
+              }
+            }
+          ]
+        }
+      ]
+      name "irRight"
+      lookupTable [
+        0 1024 0
+        0.05 1024 0
+        0.051 0 0
+      ]
+    }
+    DEF LEFTSENSOR DistanceSensor {
+      translation 0.02 0.01 0.045
+      rotation 0 1 0 -0.78
+      children [
+        DEF INFRARED Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.670588 0.521569 0.223529
+                }
+              }
+              geometry Sphere {
+                radius 0.007
+              }
+            }
+          ]
+        }
+      ]
+      name "irLeft"
+      lookupTable [
+        0 1024 0
+        0.05 1024 0
+        0.051 0 0
+      ]
+    }
+    DEF LEFTWHEEL Solid {
+      translation -0.035031 0.0250718 -4.03376e-06
+      rotation 0.999855 0.000569605 -0.0170152 0.243724
+      children [
+        DEF wheel Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.01
+                radius 0.025
+              }
+            }
+          ]
+        }
+      ]
+      name "left wheel"
+      boundingObject USE wheel
+      physics Physics {
+        density -1
+        mass 0.05
+      }
+    }
+    DEF RIGHTWHEEL Solid {
+      translation 0.035 0.0250039 2.60209e-18
+      rotation 0.999877 -3.73477e-09 -0.0156584 0
+      children [
+        Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.01
+                radius 0.025
+              }
+            }
+          ]
+        }
+      ]
+      name "right wheel"
+      boundingObject USE wheel
+      physics Physics {
+        density -1
+        mass 0.05
+      }
+    }
+  ]
+  name "DidaBot"
+  boundingObject DEF CHASSIS Transform {
+    translation 0 0.03 0
+    children [
+      Shape {
+        appearance Appearance {
+          material Material {
+            diffuseColor 0.141176 0.4 0.172549
+            specularColor 0.505882 0.219608 0.219608
+          }
+        }
+        geometry DEF body Box {
+          size 0.07 0.05 0.09
+        }
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 1
+  }
+  locked TRUE
+  controller "didabot_braitenberg_cpp"
+  axleLength 0.07
+  wheelRadius 0.0025
+  maxSpeed 50
+  maxAcceleration 35
+  slipNoise 0
+}
+DEF ROBOT3 DifferentialWheels {
+  translation -0.35 0 -0.6
+  rotation 0 1 0 0.78
+  children [
+    DEF SUPPORT Solid {
+      translation 0 0.01 -0.045
+      children [
+        DEF supportBall Shape {
+          geometry Sphere {
+            radius 0.01
+          }
+        }
+      ]
+      boundingObject USE supportBall
+      physics DEF SUPPPHYS Physics {
+        density -1
+        mass 0.05
+      }
+    }
+    DEF SUPPORTFRONT Solid {
+      translation 0 0.01 0.035
+      children [
+        USE supportBall
+      ]
+      boundingObject USE supportBall
+      physics USE SUPPPHYS
+    }
+    DEF CHASSIS Transform {
+      translation 0 0.03 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0 0 1
+              specularColor 0.505882 0.219608 0.219608
+            }
+          }
+          geometry DEF body Box {
+            size 0.07 0.05 0.09
+          }
+        }
+      ]
+    }
+    DEF RIGHTSENSOR DistanceSensor {
+      translation -0.02 0.01 0.045
+      rotation 0 1 0 -2.35
+      children [
+        DEF INFRARED Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.670588 0.521569 0.223529
+                }
+              }
+              geometry DEF sensor_ball Sphere {
+                radius 0.007
+              }
+            }
+          ]
+        }
+      ]
+      name "irRight"
+      lookupTable [
+        0 1024 0
+        0.05 1024 0
+        0.051 0 0
+      ]
+    }
+    DEF LEFTSENSOR DistanceSensor {
+      translation 0.02 0.01 0.045
+      rotation 0 1 0 -0.78
+      children [
+        DEF INFRARED Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.670588 0.521569 0.223529
+                }
+              }
+              geometry Sphere {
+                radius 0.007
+              }
+            }
+          ]
+        }
+      ]
+      name "irLeft"
+      lookupTable [
+        0 1024 0
+        0.05 1024 0
+        0.051 0 0
+      ]
+    }
+    DEF LEFTWHEEL Solid {
+      translation -0.035031 0.0250718 -4.03376e-06
+      rotation 0.999855 0.000569605 -0.0170152 0.243724
+      children [
+        DEF wheel Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.01
+                radius 0.025
+              }
+            }
+          ]
+        }
+      ]
+      name "left wheel"
+      boundingObject USE wheel
+      physics Physics {
+        density -1
+        mass 0.05
+      }
+    }
+    DEF RIGHTWHEEL Solid {
+      translation 0.035 0.0250039 2.60209e-18
+      rotation 0.999877 -3.73477e-09 -0.0156584 0
+      children [
+        Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.01
+                radius 0.025
+              }
+            }
+          ]
+        }
+      ]
+      name "right wheel"
+      boundingObject USE wheel
+      physics Physics {
+        density -1
+        mass 0.05
+      }
+    }
+  ]
+  name "DidaBot"
+  boundingObject DEF CHASSIS Transform {
+    translation 0 0.03 0
+    children [
+      Shape {
+        appearance Appearance {
+          material Material {
+            diffuseColor 0 0 1
+            specularColor 0.505882 0.219608 0.219608
+          }
+        }
+        geometry DEF body Box {
+          size 0.07 0.05 0.09
+        }
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 1
+  }
+  locked TRUE
+  controller "didabot_braitenberg_cpp"
+  axleLength 0.07
+  wheelRadius 0.0025
+  maxSpeed 50
+  maxAcceleration 35
+  slipNoise 0
+}
